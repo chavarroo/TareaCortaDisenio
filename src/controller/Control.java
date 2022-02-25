@@ -7,6 +7,7 @@ package controller;
 
 import controller.DAO.DAOSedesImpl;
 import model.Carrera;
+import model.Formulario;
 import model.Sede;
 import model.TGrado;
 
@@ -52,6 +53,21 @@ public class Control {
                 elGrado, laSede);
         // se solicita al gestor el registro de la carrera
         return gCarreras.agregarCarrera(unaCarrera);
+    }
+
+    public boolean crearFormulario(DTOFormulario dto) {
+
+        // Paso 1: localizar todos los datos que están relacionados con el formulario
+        Sede laSede = (Sede) DAOSedesImpl.getInstance().get(dto.getCodigoSede());
+
+        //crea una instancia de acuerdo al modelo propuesto de un formulario
+//        Formulario formulario = new Formulario(dto.getCodigo(), dto.getNombre(),
+//                dto.getPuntajeMaximo(), dto.getMaximoAdmitidos(),
+//                elGrado, laSede);
+//        // se solicita al gestor el registro de la carrera
+
+
+        return false;
     }
 
     public void mostrarCarreras() {
