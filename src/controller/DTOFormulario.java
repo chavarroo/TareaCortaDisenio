@@ -1,29 +1,74 @@
 package controller;
 
+import java.util.Date;
+import java.util.List;
+import model.Formulario;
+
 public class DTOFormulario {
 
-    private String nombre;
-    private String correo;
-    private String direccion;
-    private String codigoSede;
+    
+    
+    private String estado;
+    private String codCarrera;
+    //private int puntajeObtenido;  **No necesario creo
     private int identificacion;
+    private String nombre;
+    private String fechaNacimiento;
+    private String correo;
     private int numeroTelefono;
-
-    public DTOFormulario(String nombre, String correo, String direccion, String codigoSede, int identificacion, int numeroTelefono) {
-        this.nombre = nombre;
-        this.correo = correo;
-        this.direccion = direccion;
-        this.codigoSede = codigoSede;
+    private String direccion;
+    private String institucion;
+    private List<Formulario> losFormularios;
+    
+    public DTOFormulario(){
+    }
+    
+    
+    //Contructor de la clase
+    public DTOFormulario(String estado, String codCarrera, int identificacion, String nombre, String fechaNacimiento, String correo, int numeroTelefono, String direccion, String institucion) {
+        this.estado = estado;
+        this.codCarrera = codCarrera;
+        //this.puntajeObtenido = puntajeObtenido;
         this.identificacion = identificacion;
+        this.nombre = nombre;
+        this.fechaNacimiento = fechaNacimiento;
+        this.correo = correo;
         this.numeroTelefono = numeroTelefono;
+        this.direccion = direccion;
+        this.institucion = institucion;
     }
 
-    public String getCodigoSede() {
-        return codigoSede;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setCodigoSede(String codigoSede) {
-        this.codigoSede = codigoSede;
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCodCarrera() {
+        return codCarrera;
+    }
+
+    public void setCodCarrera(String codCarrera) {
+        this.codCarrera = codCarrera;
+    }
+
+    /*
+    public int getPuntajeObtenido() {
+        return puntajeObtenido;
+    }
+
+    public void setPuntajeObtenido(int puntajeObtenido) {
+        this.puntajeObtenido = puntajeObtenido;
+    }*/
+
+    public int getIdentificacion() {
+        return identificacion;
+    }
+
+    public void setIdentificacion(int identificacion) {
+        this.identificacion = identificacion;
     }
 
     public String getNombre() {
@@ -34,12 +79,28 @@ public class DTOFormulario {
         this.nombre = nombre;
     }
 
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
     public String getCorreo() {
         return correo;
     }
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public int getNumeroTelefono() {
+        return numeroTelefono;
+    }
+
+    public void setNumeroTelefono(int numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
     }
 
     public String getDireccion() {
@@ -50,19 +111,20 @@ public class DTOFormulario {
         this.direccion = direccion;
     }
 
-    public int getIdentificacion() {
-        return identificacion;
+    public String getInstitucion() {
+        return institucion;
     }
 
-    public void setIdentificacion(int identificacion) {
-        this.identificacion = identificacion;
+    public void setInstitucion(String institucion) {
+        this.institucion = institucion;
     }
 
-    public int getNumeroTelefono() {
-        return numeroTelefono;
+    public List<Formulario> getLosFormularios() {
+        return losFormularios;
     }
 
-    public void setNumeroTelefono(int numeroTelefono) {
-        this.numeroTelefono = numeroTelefono;
+    public void setLosFormularios(List<Formulario> losFormularios) {
+        this.losFormularios = losFormularios;
     }
+
 }

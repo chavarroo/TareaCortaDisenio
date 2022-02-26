@@ -57,6 +57,7 @@ public class GestorCarreras {
         DTOCarrera unDTO = new DTOCarrera();
         return DAOCarrerasImpl.getInstance().getAll();
     }
+    
     public List buscarCarreras(String codigoSede){
         return DAOCarrerasImpl.getInstance().getAll(codigoSede);
     }          
