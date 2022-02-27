@@ -136,4 +136,19 @@ public class Control {
         }
         return false;
     }
+    
+    
+    //Método punto 10
+    public void verFormulariosFiltro(String tEstado, boolean porNombre, String codCarrera){
+        
+        if (porNombre)
+            dtoForm.setLosFormularios(gForms.getSolicitudesXNombre(tEstado, codCarrera));
+        else
+            dtoForm.setLosFormularios(gForms.getSolicitudesXPuntaje(tEstado, codCarrera));
+    }
+    
+    //Método punto 12
+    public void verFormularioDetalle(int numFormulario){
+        dtoForm.setDetalleFormulario(gForms.getFormularioDetalle(numFormulario));
+    }
 }

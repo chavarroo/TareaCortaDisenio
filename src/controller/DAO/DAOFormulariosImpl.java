@@ -8,6 +8,7 @@ package controller.DAO;
 import java.util.ArrayList;
 import java.util.List;
 import model.Formulario;
+import model.TEstado;
 
 /**
  *
@@ -53,7 +54,15 @@ public class DAOFormulariosImpl implements DAOTrasaccional{
 
     @Override
     public Object get(Object key) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int num = (int) key;
+        
+        for (int i = 0; i < tablaFormularios.size(); i++){
+            
+            if (tablaFormularios.get(i).getNum() == num){
+                return tablaFormularios.get(i);
+            }
+        }
+        return null;
     }
 
     @Override
@@ -67,5 +76,23 @@ public class DAOFormulariosImpl implements DAOTrasaccional{
         } else{
             return tablaFormularios.get(tablaFormularios.size()-1).getNum() + 1;
         }
+    }
+    
+    
+    //Punto 10, devuelve la lista de forms filtrada por estado y carrera
+    public List getAll(String tEstado, String codCarrera){
+        
+        List formularios = new ArrayList<Formulario>();
+        TEstado estado = TEstado.valueOf(tEstado);
+        
+        
+        for (int i=0; i<tablaFormularios.size(); i++){
+            
+            if (tablaFormularios.get(i).getEstado() == estado && tablaFormularios.get(i).getCarrera().getCodigo().equals(codCarrera)){
+                formularios.add(tablaFormularios.get(i));
+            }
+            
+        }
+        return formularios;
     }
 }

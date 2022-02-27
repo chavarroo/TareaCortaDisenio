@@ -6,6 +6,7 @@
 package controller;
 
 import controller.DAO.DAOFormulariosImpl;
+import java.util.Collections;
 import java.util.List;
 import model.Formulario;
 
@@ -24,4 +25,29 @@ public class GestorFormularios {
         DTOFormulario unDTO = new DTOFormulario();
         return DAOFormulariosImpl.getInstance().getAll();
     } 
+    
+    public List getSolicitudesXNombre(String tEstado, String codCarrera){
+        
+        List<Formulario> forms = DAOFormulariosImpl.getInstance().getAll(tEstado, codCarrera);
+        Collections.sort(forms, (o1, o2) -> {
+            return o1.getNombre().compareTo(o2.getNombre()); //To change body of generated lambdas, choose Tools | Templates.
+        });
+        return forms;
+    }
+    
+    public List getSolicitudesXPuntaje(String tEstado, String codCarrera){
+        
+        List<Formulario> forms = DAOFormulariosImpl.getInstance().getAll(tEstado, codCarrera);
+        Collections.sort(forms, (o1, o2) -> {
+            return o1.getPuntajeObtenido()- o2.getPuntajeObtenido(); //To change body of generated lambdas, choose Tools | Templates.
+        });
+        
+        return forms;
+    }
+    
+    public Formulario getFormularioDetalle(int numFormulario){
+        
+        return (Formulario) DAOFormulariosImpl.getInstance().get(numFormulario);
+        
+    }
 }

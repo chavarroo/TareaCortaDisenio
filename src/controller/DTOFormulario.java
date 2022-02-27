@@ -10,7 +10,7 @@ public class DTOFormulario {
     
     private String estado;
     private String codCarrera;
-    //private int puntajeObtenido;  **No necesario creo
+   // private int puntajeObtenido;  //**No necesario creo
     private int identificacion;
     private String nombre;
     private String fechaNacimiento;
@@ -19,10 +19,11 @@ public class DTOFormulario {
     private String direccion;
     private String institucion;
     private List<Formulario> losFormularios;
+    private Formulario detalleFormulario;
     
     public DTOFormulario(){
     }
-    
+   
     
     //Contructor de la clase
     public DTOFormulario(String estado, String codCarrera, int identificacion, String nombre, String fechaNacimiento, String correo, int numeroTelefono, String direccion, String institucion) {
@@ -127,4 +128,12 @@ public class DTOFormulario {
         this.losFormularios = losFormularios;
     }
 
+    
+    public Formulario getDetalleFormulario() {
+        return detalleFormulario;
+    }
+
+    public void setDetalleFormulario(Formulario detalleFormulario) {
+        this.detalleFormulario = detalleFormulario;
+    }
 }
