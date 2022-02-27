@@ -34,16 +34,10 @@ public class PruebaForms {
         
         cargarForms();
                 
-/*
         //Punto 7
-        for (int i = 0;i<dtoForm.getLosFormularios().size();i++){
-            int puntaje = (int) Math.floor(Math.random()*(800-0+1)+0);
-            Control.getInstance().verFormularioDetalle(i);
-            dtoForm.getDetalleFormulario().setPuntajeObtenido(puntaje);
-            System.out.print(dtoForm.getDetalleFormulario());
-        }
+        Control.getInstance().simularPrueba();
         
-        Control.getInstance().actualizarEstado();*/
+        //Control.getInstance().actualizarEstado();*/
        
         //Punto 9
         Control.getInstance().mostrarFormularios();
