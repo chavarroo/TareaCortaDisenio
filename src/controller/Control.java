@@ -153,24 +153,29 @@ public class Control {
     
     //Método punto 8
     public void actualizarEstado(){
-      int contador = 0;
-      int cupo = 40;
-      int notaminima = 600;
-      for(int i = 0; i<dtoForm.getLosFormularios().size();i++){
-          Control.getInstance().verFormularioDetalle(i);
-          int puntaje = dtoForm.getDetalleFormulario().getPuntajeObtenido();
-          if(puntaje <= notaminima){
-              dtoForm.getDetalleFormulario().setEstado(TEstado.RECHAZADO);
-          }
-          else if(puntaje >= notaminima && contador <= cupo){
-              dtoForm.getDetalleFormulario().setEstado(TEstado.ACEPTADO);
-              contador += 1;
-          }
-          else if(puntaje >= notaminima && contador > cupo){
-              dtoForm.getDetalleFormulario().setEstado(TEstado.EN_ESPERA);
-          }
-      }
-      //System.out.print("la carrera es: " + gCarreras.buscarCarrera("IC","CA"));
+       for(int i = 0; i<dto.getLasCarreras().size();i++){
+           int cupo = 0;
+           int puntajeMinimo = dto.getLasCarreras().get(i).getPuntajeAdmision();
+           int capacidad = dto.getLasCarreras().get(i).getCapacidadMax();
+           System.out.print("puntaje " + puntajeMinimo);
+           System.out.print("capacidad " +capacidad);
+           for(int j = 0; j<dtoForm.getLosFormularios().size();j++){
+               Control.getInstance().verFormularioDetalle(j);
+               if(dtoForm.getDetalleFormulario().getCarrera() == dto.getLasCarreras().get(i)){
+                    int puntaje = dtoForm.getDetalleFormulario().getPuntajeObtenido();
+                    if(puntaje <= puntajeMinimo){
+                        dtoForm.getDetalleFormulario().setEstado(TEstado.RECHAZADO);
+                    }
+                    else if(puntaje >= puntajeMinimo && cupo <= capacidad){
+                        dtoForm.getDetalleFormulario().setEstado(TEstado.ACEPTADO);
+                        cupo += 1;
+                    }
+                    else if(puntaje >= puntajeMinimo && cupo <= capacidad){
+                        dtoForm.getDetalleFormulario().setEstado(TEstado.EN_ESPERA);
+                    }
+                }
+           }
+       }
     }
     
     
