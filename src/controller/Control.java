@@ -140,6 +140,17 @@ public class Control {
         return false;
     }
     
+    //Método 7
+    
+    public void simularPrueba(){
+        for (int i = 0;i<dtoForm.getLosFormularios().size();i++){
+            int puntaje = (int) Math.floor(Math.random()*(800-0+1)+0);
+            Control.getInstance().verFormularioDetalle(i);
+            dtoForm.getDetalleFormulario().setPuntajeObtenido(puntaje);
+        }
+        
+    }
+    
     //Método punto 8
     public void actualizarEstado(){
       int contador = 0;
