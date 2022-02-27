@@ -81,7 +81,7 @@ public class Control {
     public boolean crearFormulario(DTOFormulario dto) throws ParseException {
 
         // Paso 1: localizar todos los datos que están relacionados con el formulario
-        Carrera carrera = (Carrera) DAOCarrerasImpl.getInstance().get(dto.getCodCarrera());
+        Carrera carrera = (Carrera) DAOCarrerasImpl.getInstance().get(dto.getCodSede(), dto.getCodCarrera());
         TEstado elEstado = TEstado.valueOf(dto.getEstado());
         int id = DAOFormulariosImpl.getInstance().newID();
         

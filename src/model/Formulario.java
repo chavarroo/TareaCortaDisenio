@@ -121,7 +121,8 @@ public class Formulario {
     @Override
     public String toString() {
         return "Num: " + num + ", estado= " + estado.toString()
-                + ", Carrera= " + carrera.getCodigo() + ": " + carrera.getNombre()
+                + ", Carrera= " + carrera.getCodigo() + " " + carrera.getNombre()
+                + ", Sede= " + carrera.getLaSede().getCodigo() + " " + carrera.getLaSede().getNombre()
                 + ", puntaje= " + puntajeObtenido
                 + ", identificacion= " + identificacion
                 + ", nombre= " + nombre 

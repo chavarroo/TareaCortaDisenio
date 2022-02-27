@@ -33,11 +33,14 @@ public class PruebaForms {
         System.out.println("********************************************************************************************\n");
         
         cargarForms();
+        
+        //Punto 9
         Control.getInstance().mostrarFormularios();
         System.out.println("Solicitudes: \n" + dtoForm.getLosFormularios());
         
         //Punto 10
-        //Control.getInstance().verFormulariosFiltro("EN_ESPERA", true, "IC");
+        Control.getInstance().verFormulariosFiltro("EN_ESPERA", true, "IC");
+        System.out.println("Solicitudes: \n" + dtoForm.getLosFormularios());
         
         //Punto 12
         Control.getInstance().verFormularioDetalle(2);
@@ -49,6 +52,7 @@ public class PruebaForms {
     public static void cargarForms() throws ParseException{
         dtoForm.setEstado("EN_ESPERA");
         dtoForm.setCodCarrera("IC");
+        dtoForm.setCodSede("SJ");
         dtoForm.setIdentificacion(305350640);
         dtoForm.setNombre("Jhonny Picado");
         dtoForm.setFechaNacimiento("14/11/2001");
@@ -62,6 +66,7 @@ public class PruebaForms {
         
         dtoForm.setEstado("EN_ESPERA");
         dtoForm.setCodCarrera("IC");
+        dtoForm.setCodSede("SJ");
         dtoForm.setIdentificacion(109080652);
         dtoForm.setNombre("Juan Vargas");
         dtoForm.setFechaNacimiento("23/05/1998");
@@ -74,7 +79,8 @@ public class PruebaForms {
         Control.getInstance().crearFormulario(dtoForm);
         
         dtoForm.setEstado("RECHAZADO");
-        dtoForm.setCodCarrera("AE");
+        dtoForm.setCodCarrera("IC");
+        dtoForm.setCodSede("CA");
         dtoForm.setIdentificacion(101110111);
         dtoForm.setNombre("Michael Lopez");
         dtoForm.setFechaNacimiento("24/12/2003");
@@ -87,7 +93,8 @@ public class PruebaForms {
         Control.getInstance().crearFormulario(dtoForm);
         
         dtoForm.setEstado("RECHAZADO");
-        dtoForm.setCodCarrera("AE");
+        dtoForm.setCodCarrera("IC");
+        dtoForm.setCodSede("SJ");
         dtoForm.setIdentificacion(609870543);
         dtoForm.setNombre("Milena Rodríguez");
         dtoForm.setFechaNacimiento("01/01/1999");
@@ -101,6 +108,7 @@ public class PruebaForms {
         
         dtoForm.setEstado("EN_ESPERA");
         dtoForm.setCodCarrera("IC");
+        dtoForm.setCodSede("CA");
         dtoForm.setIdentificacion(203450768);
         dtoForm.setNombre("Fabiola Muñoz");
         dtoForm.setFechaNacimiento("29/06/2000");

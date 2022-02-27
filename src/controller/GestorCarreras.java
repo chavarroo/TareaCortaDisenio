@@ -24,7 +24,7 @@ public class GestorCarreras {
         
         //simula la existencia de N carreras previamente creadas.
         String carreras [][] = {{"IC","Ing.Computacion","560","140","BACHILLERATO","CA"},
-                            {"AE","Admnistracion Empresas","500","80","LICENCIATURA","SJ"},
+                            {"IC","Ing.Computacion","500","80","LICENCIATURA","SJ"},
                             {"FI","Ing.Física","750","40","BACHILLERATO","CA"}};
         
         for (int i = 0; i < carreras.length; i++) {

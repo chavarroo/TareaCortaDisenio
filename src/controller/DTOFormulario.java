@@ -10,6 +10,7 @@ public class DTOFormulario {
     
     private String estado;
     private String codCarrera;
+    private String codSede;
    // private int puntajeObtenido;  //**No necesario creo
     private int identificacion;
     private String nombre;
@@ -135,5 +136,13 @@ public class DTOFormulario {
 
     public void setDetalleFormulario(Formulario detalleFormulario) {
         this.detalleFormulario = detalleFormulario;
+    }
+    
+    public String getCodSede() {
+        return codSede;
+    }
+
+    public void setCodSede(String codSede) {
+        this.codSede = codSede;
     }
 }
