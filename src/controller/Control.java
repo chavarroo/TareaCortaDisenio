@@ -11,7 +11,10 @@ import controller.DAO.DAOFormulariosImpl;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import model.Carrera;
 import model.Formulario;
 import model.Sede;
@@ -167,6 +170,41 @@ public class Control {
             dtoForm.setLosFormularios(gForms.getSolicitudesXNombre(tEstado, codCarrera));
         else
             dtoForm.setLosFormularios(gForms.getSolicitudesXPuntaje(tEstado, codCarrera));
+    }
+    
+    
+    //Método punto 11
+    public void verCantXEstado(String tEstado){
+        
+        //Request de listas
+        List<Carrera> carreras = gCarreras.buscarCarreras();
+        List<Formulario> forms = gForms.buscarFormularios();
+        
+        //Variables temps
+        Map<Carrera, Integer> map = new HashMap<Carrera, Integer>();
+        TEstado estado = TEstado.valueOf(tEstado);
+        
+        
+        //Carreras primero
+        for (int i = 0; i<carreras.size(); i++){
+            
+            int count = 0;
+            
+            //Recorre forms
+            for (int j=0; j<forms.size(); j++){
+                
+                //Aumenta la cantidad según coincidencia
+                if (carreras.get(i) == forms.get(j).getCarrera() && 
+                        forms.get(j).getEstado() == estado){
+                    
+                    count++;      
+                }
+            }
+            //Add to hashmap
+            map.put(carreras.get(i), count);
+        }
+        
+        dtoForm.setMap(map);
     }
     
     //Método punto 12

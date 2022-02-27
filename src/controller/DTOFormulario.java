@@ -2,6 +2,7 @@ package controller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import model.Formulario;
 
 public class DTOFormulario {
@@ -21,6 +22,7 @@ public class DTOFormulario {
     private String institucion;
     private List<Formulario> losFormularios;
     private Formulario detalleFormulario;
+    private Object map; 
     
     public DTOFormulario(){
     }
@@ -145,4 +147,12 @@ public class DTOFormulario {
     public void setCodSede(String codSede) {
         this.codSede = codSede;
     }
+    
+    public Object getMap() {
+        return map;
+    }
+
+    public void setMap(Object map) {
+        this.map = map;
+    }   
 }

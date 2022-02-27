@@ -33,11 +33,8 @@ public class PruebaForms {
         System.out.println("********************************************************************************************\n");
         
         cargarForms();
-        
-        Control.getInstance().mostrarFormularios();
-        System.out.println("Solicitudes: \n" + dtoForm.getLosFormularios());
-        
-
+                
+/*
         //Punto 7
         for (int i = 0;i<dtoForm.getLosFormularios().size();i++){
             int puntaje = (int) Math.floor(Math.random()*(800-0+1)+0);
@@ -46,18 +43,22 @@ public class PruebaForms {
             System.out.print(dtoForm.getDetalleFormulario());
         }
         
-        Control.getInstance().actualizarEstado();
-        
+        Control.getInstance().actualizarEstado();*/
+       
         //Punto 9
         Control.getInstance().mostrarFormularios();
         System.out.println("Solicitudes: \n" + dtoForm.getLosFormularios());
         
         //Punto 10
         Control.getInstance().verFormulariosFiltro("EN_ESPERA", true, "IC");
-        System.out.println("Solicitudes: \n" + dtoForm.getLosFormularios());
+        System.out.println("Solicitudes con filtro: \n" + dtoForm.getLosFormularios());
+        
+        //Punto 11
+        Control.getInstance().verCantXEstado("EN_ESPERA");
+        System.out.println("Punto 11: \n" + dtoForm.getMap());
         
         //Punto 12
-        Control.getInstance().verFormularioDetalle(2);
+        Control.getInstance().verFormularioDetalle(0);
         System.out.println("Formulario Detalle: \n" + dtoForm.getDetalleFormulario());
     }
     
@@ -101,7 +102,7 @@ public class PruebaForms {
         dtoForm.setCorreo("jmlopez@gmail.com");
         dtoForm.setNumeroTelefono(65439009);
         dtoForm.setDireccion("Paraíso, Cartago");
-        dtoForm.setInstitucion("CTP José Figueres Ferre");
+        dtoForm.setInstitucion("CTP José Figueres Ferrer");
         //dtoForm.setPuntajeObtenido(100);
         
         Control.getInstance().crearFormulario(dtoForm);

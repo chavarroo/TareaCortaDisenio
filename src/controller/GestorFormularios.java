@@ -50,4 +50,6 @@ public class GestorFormularios {
         return (Formulario) DAOFormulariosImpl.getInstance().get(numFormulario);
         
     }
+    
+    
 }
