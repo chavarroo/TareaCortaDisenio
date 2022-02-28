@@ -37,12 +37,12 @@ public class ViewManager extends View {
             System.out.println("11. Crear una nueva carrera");
 
 
-            op = requestInputInt("Inserte la opción");
+            op = requestInputInt("Inserte la opción");            
             switch (op) {
                 case 0 -> System.exit(0);
                 case 1 -> viewFormulario.registrarFormulario(); // 6
                 case 2 -> viewFormulario.verSimularPruebas(); // 7
-                case 3 -> viewFormulario.verSimularPruebas(); // 8
+                case 3 -> viewFormulario.cambiarEstados(); // 8
                 case 4 -> viewFormulario.listarSoliciudes(); // 9
                 case 5 -> viewFormulario.detallesFormulario(); // 12
                 case 6 -> viewFormulario.verFormulariosFiltroPorNombre(); // 10.a

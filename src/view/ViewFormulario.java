@@ -87,4 +87,15 @@ public class ViewFormulario extends View {
         System.out.println("Resultados de la simulacion: ");
         System.out.println(c.getDtoForm().getLosFormularios());
     }
+    
+    //8
+    public void cambiarEstados(){
+       
+        
+        System.out.println("----------------Cambiando Estados----------------");
+        c.actualizarEstado();
+        System.out.println("Resultados del cambio: ");
+        System.out.println(c.getDtoForm().getLosFormularios());
+    }
+    
 }

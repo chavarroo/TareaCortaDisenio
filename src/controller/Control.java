@@ -181,6 +181,7 @@ public class Control {
                 }
            }
        }
+       dtoForm.setLosFormularios(gForms.buscarFormularios());
     }
     
     
