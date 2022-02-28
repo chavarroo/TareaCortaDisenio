@@ -1,22 +1,56 @@
 package view;
 
+import controller.Control;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public abstract class View {
 
-    public static String requestInputString(String ms) {
+    Control c;
+    static Scanner s;
 
-        System.out.println(ms +": ");
+    public View() {
+        c = Control.getInstance();
+    }
 
-        try(Scanner s = new Scanner(System.in)) {
-            String input = s.next();
-            // validations
-            return input;
+    protected String requestInputString(String ms) {
+
+        System.out.print(ms +": ");
+        String input = "-1";
+
+        try {
+            input = s.next();
+        } catch (InputMismatchException e ) {
+            System.out.println("-Intente de nuevo");
+            return requestInputString(ms);
         } catch (Exception e ) {
             e.printStackTrace();
+            System.err.println("Error with scanner");
+            System.exit(1);
         }
 
-        return "error";
+        return input;
+    }
+
+    protected int requestInputInt(String ms) {
+        int input = -1;
+        System.out.print(ms +": ");
+
+        try {
+            input = s.nextInt();
+            s.nextLine();
+        } catch (InputMismatchException e ) {
+            s.nextLine();
+            System.out.println("-Intente de nuevo");
+            return requestInputInt(ms);
+        } catch (Exception e ) {
+            e.printStackTrace();
+            System.err.println("Error with scanner");
+            System.exit(1);
+        }
+
+        return input;
     }
 
 }

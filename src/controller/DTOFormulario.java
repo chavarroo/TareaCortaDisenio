@@ -1,14 +1,11 @@
 package controller;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import model.Formulario;
+import model.TEstado;
 
 public class DTOFormulario {
 
-    
-    
     private String estado;
     private String codCarrera;
     private String codSede;
@@ -24,10 +21,10 @@ public class DTOFormulario {
     private Formulario detalleFormulario;
     private Object map; 
     
-    public DTOFormulario(){
+    public DTOFormulario() {
+        this.estado = "RECHAZADO";
     }
-   
-    
+
     //Contructor de la clase
     public DTOFormulario(String estado, String codCarrera, int identificacion, String nombre, String fechaNacimiento, String correo, int numeroTelefono, String direccion, String institucion) {
         this.estado = estado;
@@ -131,7 +128,6 @@ public class DTOFormulario {
         this.losFormularios = losFormularios;
     }
 
-    
     public Formulario getDetalleFormulario() {
         return detalleFormulario;
     }
@@ -139,7 +135,7 @@ public class DTOFormulario {
     public void setDetalleFormulario(Formulario detalleFormulario) {
         this.detalleFormulario = detalleFormulario;
     }
-    
+
     public String getCodSede() {
         return codSede;
     }
@@ -155,4 +151,19 @@ public class DTOFormulario {
     public void setMap(Object map) {
         this.map = map;
     }   
+
+    @Override
+    public String toString() {
+        return "DTOFormulario{" +
+                "codCarrera='" + codCarrera + '\'' +
+                ", identificacion=" + identificacion +
+                ", nombre='" + nombre + '\'' +
+                ", fechaNacimiento='" + fechaNacimiento + '\'' +
+                ", correo='" + correo + '\'' +
+                ", numeroTelefono=" + numeroTelefono +
+                ", direccion='" + direccion + '\'' +
+                ", institucion='" + institucion + '\'' +
+                '}';
+    }
+
 }

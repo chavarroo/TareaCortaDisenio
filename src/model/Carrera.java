@@ -82,9 +82,8 @@ public class Carrera {
                ", puntajeAdmision=" + puntajeAdmision + 
                ", capacidadMax=" + capacidadMax + 
                ", grado=" + grado + 
-               ", laSede=" + laSede + '\n';
+               ", laSede=" + laSede;
     }
-
 
     @Override
     public boolean equals(Object obj) {
@@ -106,9 +105,5 @@ public class Carrera {
         }
         return true;
     }
-    
-    
-            
-    
-    
+
 }

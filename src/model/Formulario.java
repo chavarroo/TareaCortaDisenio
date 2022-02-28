@@ -16,6 +16,17 @@ public class Formulario {
     private String direccion;
     private String institucion;
 
+    public Formulario(Carrera carrera, int identificacion, String nombre, Date fechaNacimiento, String correo, int numeroTelefono, String direccion, String institucion) {
+        this.carrera = carrera;
+        this.identificacion = identificacion;
+        this.nombre = nombre;
+        this.fechaNacimiento = fechaNacimiento;
+        this.correo = correo;
+        this.numeroTelefono = numeroTelefono;
+        this.direccion = direccion;
+        this.institucion = institucion;
+    }
+
     public Formulario(int num, TEstado estado, Carrera carrera, int puntajeObtenido, int identificacion, String nombre, Date fechaNacimiento, String correo, int numeroTelefono, String direccion, String institucion) {
         this.num = num;
         this.estado = estado;
@@ -121,8 +132,7 @@ public class Formulario {
     @Override
     public String toString() {
         return "Num: " + num + ", estado= " + estado.toString()
-                + ", Carrera= " + carrera.getCodigo() + " " + carrera.getNombre()
-                + ", Sede= " + carrera.getLaSede().getCodigo() + " " + carrera.getLaSede().getNombre()
+                + ", Carrera= " + (carrera != null ? carrera.getCodigo() : "") + " " + (carrera != null ? carrera.getNombre() : "")
                 + ", puntaje= " + puntajeObtenido
                 + ", identificacion= " + identificacion
                 + ", nombre= " + nombre 

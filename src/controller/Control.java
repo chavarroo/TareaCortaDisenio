@@ -10,11 +10,8 @@ import controller.DAO.DAOCarrerasImpl;
 import controller.DAO.DAOFormulariosImpl;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
+
 import model.Carrera;
 import model.Formulario;
 import model.Sede;
@@ -53,6 +50,8 @@ public class Control {
         gCarreras = new GestorCarreras();  // se habilita un gestor con carreras precreadas    
         
         dtoForm = new DTOFormulario();
+        dtoForm.setLosFormularios(new ArrayList<>());
+        
         gForms = new GestorFormularios();
     }
 
@@ -141,36 +140,32 @@ public class Control {
     }
     
     //Método 7
-    
-    public void simularPrueba(){
-        for (int i = 0;i<dtoForm.getLosFormularios().size();i++){
+    public void simularPrueba() {
+        for (int i = 0;i< dtoForm.getLosFormularios().size(); i++) {
             int puntaje = (int) Math.floor(Math.random()*(800-0+1)+0);
-            Control.getInstance().verFormularioDetalle(i);
+            verFormularioDetalle(i);
             dtoForm.getDetalleFormulario().setPuntajeObtenido(puntaje);
         }
-        
     }
     
     //Método punto 8
-    public void actualizarEstado(){
+    public void actualizarEstado() {
        for(int i = 0; i<dto.getLasCarreras().size();i++){
            int cupo = 0;
            int puntajeMinimo = dto.getLasCarreras().get(i).getPuntajeAdmision();
            int capacidad = dto.getLasCarreras().get(i).getCapacidadMax();
-           System.out.print("puntaje " + puntajeMinimo);
-           System.out.print("capacidad " +capacidad);
-           for(int j = 0; j<dtoForm.getLosFormularios().size();j++){
-               Control.getInstance().verFormularioDetalle(j);
+           for(int j = 0; j < dtoForm.getLosFormularios().size(); j++) {
+               verFormularioDetalle(j);
                if(dtoForm.getDetalleFormulario().getCarrera() == dto.getLasCarreras().get(i)){
                     int puntaje = dtoForm.getDetalleFormulario().getPuntajeObtenido();
-                    if(puntaje <= puntajeMinimo){
+                    if(puntaje < puntajeMinimo){
                         dtoForm.getDetalleFormulario().setEstado(TEstado.RECHAZADO);
                     }
-                    else if(puntaje >= puntajeMinimo && cupo <= capacidad){
+                    else if( cupo <= capacidad){
                         dtoForm.getDetalleFormulario().setEstado(TEstado.ACEPTADO);
                         cupo += 1;
                     }
-                    else if(puntaje >= puntajeMinimo && cupo <= capacidad){
+                    else {
                         dtoForm.getDetalleFormulario().setEstado(TEstado.EN_ESPERA);
                     }
                 }
@@ -182,10 +177,8 @@ public class Control {
     //Método punto 10
     public void verFormulariosFiltro(String tEstado, boolean porNombre, String codCarrera){
         
-        if (porNombre)
-            dtoForm.setLosFormularios(gForms.getSolicitudesXNombre(tEstado, codCarrera));
-        else
-            dtoForm.setLosFormularios(gForms.getSolicitudesXPuntaje(tEstado, codCarrera));
+        if (porNombre) dtoForm.setLosFormularios(gForms.getSolicitudesXNombre(tEstado, codCarrera));
+        else dtoForm.setLosFormularios(gForms.getSolicitudesXPuntaje(tEstado, codCarrera));
     }
     
     
@@ -199,7 +192,6 @@ public class Control {
         //Variables temps
         Map<Carrera, Integer> map = new HashMap<Carrera, Integer>();
         TEstado estado = TEstado.valueOf(tEstado);
-        
         
         //Carreras primero
         for (int i = 0; i<carreras.size(); i++){

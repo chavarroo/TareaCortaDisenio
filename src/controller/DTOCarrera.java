@@ -86,7 +86,18 @@ public class DTOCarrera {
     public void setLasCarreras(List<Carrera> lasCarreras) {
         this.lasCarreras = lasCarreras;
     }
-    
-    
-    
+
+
+    @Override
+    public String toString() {
+        return "DTOCarrera{" +
+                "codigo='" + codigo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", puntajeMaximo=" + puntajeMaximo +
+                ", maximoAdmitidos=" + maximoAdmitidos +
+                ", grado='" + grado + '\'' +
+                ", codigoSede='" + codigoSede + '\'' +
+                ", lasCarreras#=" + lasCarreras.size() +
+                '}';
+    }
 }
