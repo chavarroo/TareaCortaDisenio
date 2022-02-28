@@ -51,5 +51,18 @@ public class GestorFormularios {
         
     }
     
+    //Método punto 7
+    public void simularPrueba(){
+        
+        List<Formulario> forms = DAOFormulariosImpl.getInstance().getAll();
+        
+        for (int i = 0;i< forms.size(); i++) {
+            
+            int puntaje = (int) Math.floor(Math.random()*(800-0+1)+0);
+            
+            forms.get(i).setPuntajeObtenido(puntaje);
+        }
+        
+    }
     
 }
